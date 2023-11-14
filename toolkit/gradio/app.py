@@ -4,12 +4,12 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 
 # Load the model and config when the script starts
-config = PeftConfig.from_pretrained("PhantHive/llama-2-7b-momo")
+config = PeftConfig.from_pretrained("% MODEL_NAME %")
 model = AutoModelForCausalLM.from_pretrained("NousResearch/Llama-2-7b-chat-hf")
-model = PeftModel.from_pretrained(model, "PhantHive/llama-2-7b-momo")
+model = PeftModel.from_pretrained(model, "% MODEL_NAME %")
 
 # Load the tokenizer
-tokenizer = AutoTokenizer.from_pretrained("NousResearch/Llama-2-7b-chat-hf")
+tokenizer = AutoTokenizer.from_pretrained("NousResearch/Llama-2-7b-chat-hf", add_eos_token=True)
 
 
 def greet(text):

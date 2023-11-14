@@ -1,6 +1,7 @@
 
 <div align="center">
-    <h1> MOMO </h1>
+    <h1  style={color:orange}> MOMO </h1>
+    <h2> Model Optimization & Meta-learning Optimization </h2>
     <h3> A toolkit for self-supervised fine-tuning and inference for project Big Brain by Scrypt</h3>
     <img src="https://i.pinimg.com/originals/30/d8/99/30d899232dfe254a407a954880f424e4.gif" width="700px">
     <br>
@@ -20,19 +21,36 @@ This project is a Python toolkit for machine learning model training and inferen
 
 ## Usage
 
-```python
-# For Gradio
-from toolkit.gradio import gradio_inference
+> For Gradio
 
-# For PEFT
-from toolkit.peft import Llama-7b-Finetune-Peftqlora
+Initialize the Gradio space by creating a repository that contains the following files:
+- `toolkit/gradio/app.py`
+- `toolkit/gradio/requirements.txt`
+
+For fine-tuning, a Medium T4 GPU is required. For inference, a T4 GPU is recommended.
+
+> For PEFT
+
+Run on Google Colab with GPU enabled (T4 recommended) the following file:
+- `toolkit/peft/llama-7b-finetune-peftqlora.ipynb`
+
+## Dataset
+
+> For fine-tuning
+
+Dataset should be in the following format:
 ```
-
-## Installation
-
-```bash
-pip install your-package
+instruction
+input
+output
+text
 ```
+Where text is the concatenation of input and output:
+`'input'  ->: 'output'`
+
+Recommended dataset size is 1000 samples at least.
+Recommended dataset format is .csv
+Recommended dataset use stop tokens such as </s> to indicate end of input and output.
 
 ### Acknowledgements
 

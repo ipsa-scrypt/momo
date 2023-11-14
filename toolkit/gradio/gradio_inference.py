@@ -13,8 +13,8 @@ def make_prediction(client, query):
 
 def main():
     logging.basicConfig(level=logging.INFO)
-    client = Client("https://phanthive-momo.hf.space/")
-    query = "who is your bias in twice?"
+    client = Client("% API_URL %")
+    query = "% QUERY %"
     result = make_prediction(client, query)
     if result is not None:
         print("Generated response:")
